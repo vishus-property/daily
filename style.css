@@ -1,0 +1,169 @@
+* { box-sizing: border-box; }
+
+:root {
+  --ink: #fffaf3;
+  --soft-ink: rgba(255, 250, 243, .7);
+  --line: rgba(255, 250, 243, .35);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  background: #35406b;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.orb {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  width: clamp(180px, 27vw, 440px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(26px);
+  opacity: .72;
+  animation: float-one 19s ease-in-out infinite alternate;
+}
+
+.orb-one {
+  top: -12vw;
+  left: -8vw;
+  background: #f06f61;
+}
+
+.orb-two {
+  right: -10vw;
+  bottom: -14vw;
+  background: #e8b84a;
+  animation-name: float-two;
+  animation-delay: -6s;
+}
+
+.orb-three {
+  top: 14%;
+  right: 18%;
+  width: clamp(140px, 19vw, 310px);
+  background: #ec70a4;
+  animation-name: float-three;
+  animation-delay: -11s;
+}
+
+.orb-four {
+  bottom: 12%;
+  left: 12%;
+  width: clamp(150px, 22vw, 350px);
+  background: #4fc9b0;
+  animation-name: float-two;
+  animation-delay: -3s;
+}
+
+.orb-five {
+  top: 42%;
+  left: 42%;
+  width: clamp(110px, 15vw, 240px);
+  background: #a77bdb;
+  animation-name: float-three;
+  animation-delay: -15s;
+}
+
+.container {
+  width: min(100%, 920px);
+}
+
+.card {
+  position: relative;
+  text-align: center;
+  padding: clamp(24px, 7vw, 72px) clamp(8px, 5vw, 54px);
+}
+
+.date {
+  margin-bottom: clamp(28px, 5vw, 52px);
+  color: var(--soft-ink);
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: clamp(11px, 1.5vw, 15px);
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.message {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  text-wrap: balance;
+  font-size: clamp(42px, 8vw, 92px);
+  font-weight: 700;
+  letter-spacing: -.045em;
+  line-height: .98;
+  text-shadow: 0 5px 28px rgba(20, 18, 50, .2);
+}
+
+.progress {
+  margin-top: 34px;
+  color: var(--soft-ink);
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+button {
+  width: 52px;
+  height: 52px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 250, 243, .08);
+  color: var(--ink);
+  font-size: 24px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  opacity: .48;
+  transition: background .2s ease, transform .2s ease;
+}
+
+button:hover:not(:disabled) {
+  background: rgba(255, 250, 243, .16);
+  opacity: .9;
+  transform: translateY(-3px);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: .35;
+}
+
+@keyframes float-one {
+  0% { transform: translate3d(-8vw, -4vh, 0) scale(.9); }
+  100% { transform: translate3d(18vw, 14vh, 0) scale(1.2); }
+}
+
+@keyframes float-two {
+  0% { transform: translate3d(8vw, 4vh, 0) scale(1.1); }
+  100% { transform: translate3d(-20vw, -16vh, 0) scale(.82); }
+}
+
+@keyframes float-three {
+  0% { transform: translate3d(-12vw, 12vh, 0) scale(1); }
+  100% { transform: translate3d(15vw, -15vh, 0) scale(1.18); }
+}
+
+@media (max-width: 500px) {
+  body { padding: 20px; }
+  .message { min-height: 270px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb { animation: none; }
+}
