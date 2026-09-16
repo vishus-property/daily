@@ -24,7 +24,7 @@ const messages = [
   // September 16, 2026
   "You can beat me up today, why not!",
   // September 17, 2026
-  "Nice Top!",
+  "Break a leg, you worked hard for this test, it will go well, be confident in yourself. YOU GOT THIS!!!!",
   // September 18, 2026
   "You were right.",
   /* September 19, 2026 */ "I'll always be here for you",
